@@ -40,12 +40,17 @@ class MainActivity : AppCompatActivity() {
             if (idade != null) {
 
                 //masculino
-                if(generoSelecionado.trim() == "Masculino"){
-                    resultado == indiceMasculino - idade
+                if (generoSelecionado.trim() == "Masculino") {
+                    resultado = indiceMasculino - idade
                 }else{
-                    resultado == indiceFeminino - idade
+                    resultado = indiceFeminino - idade
                 }
-                binding.textViewResultado.text = "Faltam $resultado anos para você se aposentar"
+
+                if (resultado >= 0){
+                    binding.textViewResultado.text = "Faltam $resultado anos para você se aposentar"
+                }else{
+                    binding.textViewResultado.text = "Você já deveria ter se aposentado"
+                }
 
             }else{
                 binding.textViewResultado.text = "Informe uma idade"
